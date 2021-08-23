@@ -1,0 +1,16 @@
+*.log
+__pycache__/
+
+# Docker container
+/docker/ros2/.ros/*
+/docker/ros2/.gazebo/*
+
+# ROS Workspace
+/dev_ws/*
+
+# Editor, IDE
+/.idea/
+.vscode
+*.code-workspace
+
+!.gitkeep

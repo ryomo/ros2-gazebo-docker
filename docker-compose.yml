@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  ros2:
+    build:
+      context: docker/ros2
+      args:
+        - user_id=1000
+        - ros_ws=/home/dockeruser/dev_ws
+    deploy:
+      resources:
+        reservations:
+          devices:
+            # [Enabling GPU access with Compose | Docker Documentation](https://docs.docker.com/compose/gpu-support/)
+            - capabilities: [gpu]
+              count: all
+    environment:
+      # Set a fancy prompt (See ~/.bashrc in the container)
+      - TERM=xterm-256color
+
+      # WSLg settings
+      # https://www.reddit.com/r/bashonubuntuonwindows/comments/n2nthu/can_i_use_the_new_wslg_with_docker/
+      - DISPLAY
+      - WAYLAND_DISPLAY
+      - XDG_RUNTIME_DIR
+      - PULSE_SERVER
+    volumes:
+      - ./:/home/dockeruser/project
+      - ./dev_ws:/home/dockeruser/dev_ws
+      - ./docker/ros2/.ros:/home/dockeruser/.ros
+      - ./docker/ros2/.gazebo/:/home/dockeruser/.gazebo
+
+      # WSLg settings
+      - /mnt/wslg:/mnt/wslg
+      - /tmp/.X11-unix:/tmp/.X11-unix
