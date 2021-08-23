@@ -46,6 +46,12 @@ ros2 topic pub /demo/cmd_demo geometry_msgs/Twist '{linear: {x: 1.0}, angular: {
 ```
 
 
+## Set up your workspace
+
+You may better to follow this steps to set up your workspace.
+[Creating a workspace — ROS 2 Documentation: Galactic documentation](https://docs.ros.org/en/galactic/Tutorials/Workspace/Creating-A-Workspace.html)
+
+
 ## Other commands
 
 ### docker-compose
