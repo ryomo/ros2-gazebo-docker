@@ -7,13 +7,16 @@ services:
       args:
         - user_id=1000
         - ros_ws=/home/dockeruser/dev_ws
-    deploy:
-      resources:
-        reservations:
-          devices:
-            # [Enabling GPU access with Compose | Docker Documentation](https://docs.docker.com/compose/gpu-support/)
-            - capabilities: [gpu]
-              count: all
+
+    # Enabling GPU access with Compose
+    # https://docs.docker.com/compose/gpu-support/
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #          - capabilities: [gpu]
+    #            count: all
+
     environment:
       # Set a fancy prompt (See ~/.bashrc in the container)
       - TERM=xterm-256color
@@ -24,6 +27,7 @@ services:
       - WAYLAND_DISPLAY
       - XDG_RUNTIME_DIR
       - PULSE_SERVER
+
     volumes:
       - ./:/home/dockeruser/project
       - ./dev_ws:/home/dockeruser/dev_ws
