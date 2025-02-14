@@ -17,9 +17,9 @@
 ```bash
 git clone {this-repository}
 cd {this-repository}
-docker-compose build
-docker-compose up -d
-docker-compose exec ros2 bash
+docker compose build
+docker compose up -d
+docker compose exec ros2 bash
 ```
 
 ### ROS2
@@ -57,13 +57,13 @@ You may better to follow this steps to set up your workspace.
 ### docker-compose
 
 ```bash
-docker-compose stop
+docker compose stop
 ```
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ```bash
-docker-compose exec --user root ros2 bash
+docker compose exec --user root ros2 bash
 ```
