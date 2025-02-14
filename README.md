@@ -22,6 +22,8 @@ docker compose up -d
 docker compose exec ros2 bash
 ```
 
+* If your user id is not 1000, add `--build-arg user_id=$(id -u)` to `docker compose build` command.
+
 ### ROS2
 
 From [Introducing turtlesim and rqt — ROS 2 Documentation: Galactic documentation](https://docs.ros.org/en/galactic/Tutorials/Turtlesim/Introducing-Turtlesim.html#start-turtlesim)
